@@ -17,7 +17,7 @@ use Yii;
 class Brand extends \yii\db\ActiveRecord
 {
 
-    public $imgFile;
+//    public $imgFile;
 
     public static $statusArray = ['0' => "删除",'1' => "隐藏", '2' => "显示"];
     /**
@@ -38,8 +38,8 @@ class Brand extends \yii\db\ActiveRecord
             [['intro'], 'string'],
             [['sort', 'status'], 'integer'],
             [['name'], 'string', 'max' => 50],
-            [['imgFile'],'file','extensions' => ['gif','png','jpg'],'skipOnEmpty' => true],
-           // [['logo'], 'string', 'max' => 255],
+            //[['imgFile'],'file','extensions' => ['gif','png','jpg'],'skipOnEmpty' => true],
+           [['logo'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,9 +52,18 @@ class Brand extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => '名称',
             'intro' => '简介',
-       //     'logo' => 'LOGO',
+            'logo' => 'LOGO',
             'sort' => '排序',
             'status' => '状态',
         ];
+    }
+
+    public function getImage(){
+
+        if (substr($this->logo,0,7)=="http://"){
+            return $this->logo;
+        }else{
+            return "@web/".$this->logo;
+        }
     }
 }
