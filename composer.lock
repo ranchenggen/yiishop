@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5fd8d30b8b8e8668d15c060e3ce129b",
+    "content-hash": "f74eed00b488da8f016324167c405972",
     "packages": [
         {
             "name": "bailangzhan/yii2-webuploader",
@@ -202,6 +202,46 @@
             "time": "2017-07-16T21:13:23+00:00"
         },
         {
+            "name": "creocoder/yii2-nested-sets",
+            "version": "0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creocoder/yii2-nested-sets.git",
+                "reference": "cb8635a459b6246e5a144f096b992dcc30cf9954"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/creocoder/yii2-nested-sets/cb8635a459b6246e5a144f096b992dcc30cf9954.zip",
+                "reference": "cb8635a459b6246e5a144f096b992dcc30cf9954",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "creocoder\\nestedsets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kochetov",
+                    "email": "creocoder@gmail.com"
+                }
+            ],
+            "description": "The nested sets behavior for the Yii framework",
+            "keywords": [
+                "nested sets",
+                "yii2"
+            ],
+            "time": "2015-01-27T10:53:51+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "v1.0.1",
             "source": {
@@ -396,6 +436,50 @@
                 "yii"
             ],
             "time": "2017-07-18T14:48:14+00:00"
+        },
+        {
+            "name": "liyuze/yii2-ztree",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liyuze/yii2-ztree.git",
+                "reference": "cc025f61d6d51071f38f5d9814f6f301566aebb7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/liyuze/yii2-ztree/cc025f61d6d51071f38f5d9814f6f301566aebb7.zip",
+                "reference": "cc025f61d6d51071f38f5d9814f6f301566aebb7",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "liyuze\\ztree\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "li yuze",
+                    "email": "290315384@qq.com"
+                }
+            ],
+            "description": "The zTree extension for the Yii framework 2.0",
+            "homepage": "https://github.com/liyuze/yii2-ztree",
+            "keywords": [
+                "extension",
+                "tree",
+                "widget",
+                "yii2",
+                "ztree"
+            ],
+            "time": "2016-02-20T11:18:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1471,16 +1555,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.2.2",
+            "version": "5.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b"
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-code-coverage/8ed1902a57849e117b5651fc1a5c48110946c06b.zip",
-                "reference": "8ed1902a57849e117b5651fc1a5c48110946c06b",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/php-code-coverage/8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d.zip",
+                "reference": "8e1d2397d8adf59a3f12b2878a3aaa66d1ab189d",
                 "shasum": ""
             },
             "require": {
@@ -1489,7 +1573,7 @@
                 "php": "^7.0",
                 "phpunit/php-file-iterator": "^1.4.2",
                 "phpunit/php-text-template": "^1.2.1",
-                "phpunit/php-token-stream": "^1.4.11 || ^2.0",
+                "phpunit/php-token-stream": "^2.0",
                 "sebastian/code-unit-reverse-lookup": "^1.0.1",
                 "sebastian/environment": "^3.0",
                 "sebastian/version": "^2.0.1",
@@ -1531,7 +1615,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-03T12:40:43+00:00"
+            "time": "2017-11-03T13:47:33+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -2006,30 +2090,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/sebastianbergmann/comparator/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a.zip",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://files.phpcomposer.com/files/sebastianbergmann/comparator/1174d9018191e93cb9d719edec01257fc05f8158.zip",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -2060,13 +2144,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",
