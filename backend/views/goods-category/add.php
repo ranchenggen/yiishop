@@ -1,12 +1,11 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: kk
- * Date: 2017/11/5
- * Time: 19:01
- */$form = \yii\bootstrap\ActiveForm::begin();
+ * @var $this \yii\web\View
+ */
+$form = \yii\bootstrap\ActiveForm::begin();
 echo $form->field($model, 'name');
-echo $form->field($model, 'parent_id')->hiddenInput();
+echo $form->field($model, 'parent_id')->hiddenInput(['value'=>0]);
+
 echo \liyuze\ztree\ZTree::widget([
     'setting' => '{
             callback: {
@@ -26,6 +25,23 @@ echo \liyuze\ztree\ZTree::widget([
 		}',
     'nodes' => $cates
 ]);
+
 echo $form->field($model, 'intro')->textarea();
 echo \yii\bootstrap\Html::submitButton("提交", ['class' => 'btn btn-success']);
+echo \yii\bootstrap\Html::a("返回",['index'],['class'=>'btn btn-warning']);
+
+
 \yii\bootstrap\ActiveForm::end();
+
+$js=<<<EOF
+var treeObj = $.fn.zTree.getZTreeObj("w1");
+treeObj.expandAll(true);
+/*选中当前节点*/
+var node = treeObj.getNodeByParam("id", "{$model->parent_id}", null);
+treeObj.selectNode(node);
+EOF;
+//注册JS代码
+$this->registerJs($js);
+
+
+?>

@@ -23,6 +23,7 @@ class ArticleController extends \yii\web\Controller
         $model=new Article();
         $content=new Articlex();
         $articlel=Articlel::find()->all();
+
         $option=ArrayHelper::map($articlel,'id','name');
         $request=\Yii::$app->request;
 
