@@ -9,6 +9,7 @@ use backend\models\GoodsDayCount;
 use backend\models\GoodsGallery;
 use backend\models\GoodsIntro;
 use flyok666\qiniu\Qiniu;
+use yii\data\Pagination;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
@@ -16,8 +17,32 @@ class GoodsController extends \yii\web\Controller
 {
     public function actionIndex()
     {
+        $query = Goods::find();
         $model = Goods::find()->all();
+        $request=\Yii::$app->request;
+//        $aa=$request->get();
+//        var_dump($aa);exit();
+        $keyword=$request->get('keyword');
+        $minPrice=$request->get('minPrice');
+        $maxPrice=$request->get('maxPrice');
+        $status=$request->get('status');
+        if ($minPrice>0){
+            //拼接条件
+//            echo 111;exit();
+            $query->andWhere("shop_price >= {$minPrice}");
+        }
+        if ($maxPrice>0){
+            $query->andWhere("shop_price <= {$maxPrice}");
+        }
+        if (isset($keyword)){
+            $query->andWhere("name like '%{$keyword}%' or sn like '%{$keyword}%'");
+        }
+        //判断0和1的情况必需用三等号
+        if ($status ==="1" or $status==="0"){
+            $query->andWhere("status= {$status}");
+        }
 
+        $model=$query->all();
         return $this->render('index',['model'=>$model]);
     }
 
@@ -32,17 +57,20 @@ class GoodsController extends \yii\web\Controller
         $model->status = 1;
         $fenlei = GoodsCategory::find()->all();
         $pinpai = Brand::find()->all();
-        $option=ArrayHelper::map($fenlei,'id','name');
+        $option=ArrayHelper::map($fenlei,'id','nametext');
         $option1=ArrayHelper::map($pinpai,'id','name');
         $request=\Yii::$app->request;
 
         if ($model->load($request->post()) && $model->validate()){
 
            $model->inputtime=time();
-      // $time=date('YmdHis',$model->inputtime);
+       $time=date('YmdHis',time());
+//       var_dump($time);exit();
 
-           $model->sn=substr("00000".$model->sn,-5);
+           $model->sn=$time.substr("00000".$model->sn,-5);
+//            var_dump($model->sn);exit();
             $model->save();
+//            var_dump($model->getErrors());exit();
 
        if ($gallery->load($request->post())){
 

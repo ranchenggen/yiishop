@@ -1,12 +1,42 @@
 <?php
 /* @var $this yii\web\View */
 ?>
-<h1>创建了商品表</h1>
+<h1>创建商品表</h1>
 
 
 
-<?=\yii\bootstrap\Html::a('添加文章',['goods/add'],['class'=>'btn btn-success'])?>
+<?=\yii\bootstrap\Html::a('添加商品',['goods/add'],['class'=>'btn btn-success pull-left'])?>
 
+<div >
+
+ <form class="form-inline pull-right">
+            <input type="text" class="form-control" id="minPrice" name="minPrice" size="8" placeholder="最低价" value="<?=Yii::$app->request->get('minPrice')?>"> -
+            <input type="text" class="form-control" id="maxPrice" name="maxPrice"  size="8" placeholder="最高价" value="<?=Yii::$app->request->get('maxPrice')?>">
+                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入商品名称或货号" value="<?=Yii::$app->request->get('keyword')?>">
+            <button type="submit" class="btn btn-info glyphicon glyphicon-zoom-in"> 搜索</button>
+        </form>
+
+
+<!--    --><?php
+//    $searchForm=new \backend\models\GoodsSearchForm();
+//    $form=\yii\bootstrap\ActiveForm::begin([
+//        'method' => 'get',
+//        'options' => ['class'=>"form-inline pull-right"]
+//    ]);
+//    echo $form->field($searchForm,'minPrice')->label(false)->textInput(['size'=>5,'placeholder'=>"最低价"]);
+//    echo "-";
+//    echo $form->field($searchForm,'maxPrice')->label(false)->textInput(['size'=>5,'placeholder'=>"最高价"]);
+//    echo " ";
+//    echo $form->field($searchForm,'keyword')->label(false)->textInput(['size'=>20,'placeholder'=>"关键字"]);
+//    echo " ";
+//    echo \yii\bootstrap\Html::submitButton("搜索",['class'=>'btn btn-success','style'=>"margin-bottom:8px"]);
+//    \yii\bootstrap\ActiveForm::end();
+//    ?>
+
+</div>
+
+
+</div>
 
 <table class="table">
 
@@ -62,4 +92,10 @@
         </tr>
 
     <?php endforeach;?>
+
+    <?php
+
+
+
+    ?>
 </table>

@@ -36,6 +36,7 @@ class Goods extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
     public function rules()
     {
         return [
@@ -43,7 +44,7 @@ class Goods extends \yii\db\ActiveRecord
             [['goods_category_id', 'brand_id', 'stock', 'is_on_sale', 'status', 'sort'], 'integer'],
             [['market_price', 'shop_price'], 'number'],
             [['name'], 'string', 'max' => 50],
-            [['sn'], 'string', 'max' => 15],
+
 
         ];
     }

@@ -28,7 +28,7 @@ echo $form->field($model,'status')->inline()->radioList([
     '1'=>"正常",'0'=>"隐藏"
 ]);
 echo $form->field($model,'sort');
-echo $form->field($intro,'content')->textarea();
+echo $form->field($intro,'content')->widget(\yii\redactor\widgets\Redactor::className());
 //echo $form->field($model,'inputtime')->hiddenInput();
 
 
