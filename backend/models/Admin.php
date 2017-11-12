@@ -24,6 +24,8 @@ class Admin extends \yii\db\ActiveRecord  implements IdentityInterface
     /**
      * @inheritdoc
      */
+
+    public $role=[];
     public static function tableName()
     {
         return 'admin';
@@ -43,6 +45,7 @@ class Admin extends \yii\db\ActiveRecord  implements IdentityInterface
             [['email'], 'string', 'max' => 30],
             [['token'], 'string', 'max' => 32],
             [['last_login_ip'], 'string', 'max' => 15],
+            [['role'] ,'safe'],
         ];
     }
 
@@ -62,6 +65,7 @@ class Admin extends \yii\db\ActiveRecord  implements IdentityInterface
             'add_time' => '注册时间',
             'last_login_time' => '最后登陆时间',
             'last_login_ip' => 'Last Login Ip',
+            'role'=>'选择角色',
         ];
     }
 
