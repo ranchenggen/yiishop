@@ -20,7 +20,7 @@
                 <td><?=$models->id?></td>
                 <td><?=$models->name?></td>
 
-                <td><?=\yii\bootstrap\Html::img("@web/".$models->logo,['height'=>40])?></td>
+                <td><?=\yii\bootstrap\Html::img($models->logo,['height'=>40])?></td>
                 <td><?=$models->sort?></td>
                 <td><?=\backend\models\Brand::$statusArray[$models->status]?></td>
 

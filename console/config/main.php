@@ -22,6 +22,7 @@ return [
           ],
     ],
     'components' => [
+
         'log' => [
             'targets' => [
                 [

@@ -75,4 +75,12 @@ class GoodsCategory extends \yii\db\ActiveRecord
     public function getNameText(){
         return str_repeat("-",4*$this->depth).$this->name;
     }
+
+
+    //得到当前分类的所有子类
+    public function getChildren(){
+        return $this->hasMany(self::className(),['parent_id'=>'id']);
+
+    }
+
 }

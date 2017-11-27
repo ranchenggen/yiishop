@@ -1,5 +1,6 @@
 <?php
 return [
+    'language'=>'zh-Cn',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',

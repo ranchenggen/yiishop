@@ -145,7 +145,7 @@ class BrandController extends \yii\web\Controller
 
         if ($book){
             $book->delete();
-            $this->redirect(['brand/index']);
+            $this->redirect(['brand/huishou']);
         }else{
 
             exit("没有此商品");

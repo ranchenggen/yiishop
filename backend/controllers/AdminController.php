@@ -10,8 +10,8 @@ class AdminController extends \yii\web\Controller
 {
     public function actionIndex()
     {
-       $model=new Admin();
-        return $this->render('index',['model'=>$model]);
+       $models=Admin::find()->all();
+        return $this->render('index',['models'=>$models]);
     }
 
 
@@ -29,9 +29,10 @@ class AdminController extends \yii\web\Controller
 
 //            var_dump($model->email);exit();
             $model->password=\Yii::$app->security->generatePasswordHash($model->password);
-            //随机字符串
+
+            $model->token_create_time=time();//随机字符串
             $model->token=\Yii::$app->security->generateRandomString();
-            $model->token_create_time=time();
+            $model->add_time=time();
             $model->save();
             //找到admin角色
             $roles=$model->role;
@@ -43,17 +44,7 @@ class AdminController extends \yii\web\Controller
             }
 
             }
-//            var_dump($model->role);exit();
-
-
-
-            //找到角色对象
-            /*$auth=\Yii::$app->authManager;
-            //找到admin角色
-            $role=$auth->getRole($model->username);
-            //把当前用户对象追加到admin角中
-            $auth->assign($role,$model->id);*/
-//            var_dump($model->getErrors());exit();
+//
             \Yii::$app->session->setFlash("success",'注册成功');
             // \Yii::$app->user->login($admin,3600*24*7);
             return $this->redirect(['login']);
@@ -61,6 +52,35 @@ class AdminController extends \yii\web\Controller
         return $this->render('add',['model'=>$model,'role'=>$role]);
 
     }
+
+    public function actionEdit($id){
+
+        $model=Admin::findOne($id);
+
+        $request=\Yii::$app->request;
+
+       $model->password="";
+//       var_dump($a);exit();
+
+//        var_dump($model->password);exit();
+        if ($model->load($request->post())){
+
+//
+            $model->password=\Yii::$app->security->generatePasswordHash($model->password);
+            //随机字符串
+            $model->token=\Yii::$app->security->generateRandomString();
+            $model->token_create_time=time();
+            $model->save();
+
+            \Yii::$app->session->setFlash("success",'修改成功');
+            // \Yii::$app->user->login($admin,3600*24*7);
+            return $this->redirect(['index?id='.$id]);
+        }
+        return $this->render('add',['model'=>$model]);
+
+    }
+
+
 
     public function actionLogin(){
         $model=new AdminForm();
@@ -76,6 +96,9 @@ class AdminController extends \yii\web\Controller
                     if (\Yii::$app->security->validatePassword($model->password,$admin->password)){
                         //执行登录
                         \Yii::$app->user->login($admin,$model->rememberMe?3600*24*7:0);
+
+                        $id=$admin->id;
+//                        var_dump($id);exit();
                         //跳转
                         return $this->redirect(['index']);
                     }else{
@@ -97,6 +120,24 @@ class AdminController extends \yii\web\Controller
         //var_dump(\Yii::$app->user->identity);
         \Yii::$app->user->logout();
         return $this->redirect(['login']);
+    }
+
+    public function actionDel($id){
+
+        $book=Admin::findOne($id);
+
+//        var_dump($idc);exit();
+
+        if ($book){
+
+            $book->delete();
+            $this->redirect(['index']);
+        }else{
+
+            exit("没有此用户");
+        }
+//
+//        echo 1111;exit();
     }
 
 }

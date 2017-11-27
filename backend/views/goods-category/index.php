@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 ?>
-<h1>文章分类列表</h1>
+<h1>商品分类列表</h1>
 <?= \yii\bootstrap\Html::a("添加", ['add'], ['class' => 'btn btn-info']) ?>
 <table class="table">
 

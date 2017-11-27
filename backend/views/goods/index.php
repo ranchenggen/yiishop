@@ -36,7 +36,7 @@
 </div>
 
 
-</div>
+<div>
 
 <table class="table">
 
@@ -93,9 +93,7 @@
 
     <?php endforeach;?>
 
-    <?php
 
-
-
-    ?>
 </table>
+
+</div>
